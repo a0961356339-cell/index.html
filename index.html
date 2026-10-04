@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="霸王茶姬咖啡｜臺中東區，距離臺中火車站步行約 8 分鐘。提供手沖咖啡、自製甜點、穩定 Wi-Fi 與舒適工作空間。"
+  />
+  <title>霸王茶姬咖啡｜臺中東區的安靜咖啡空間</title>
+
+  <style>
+    :root {
+      --coffee: #4a3025;
+      --coffee-dark: #302019;
+      --cream: #f7f2e9;
+      --cream-light: #fcfaf6;
+      --wood: #c9aa86;
+      --wood-light: #e5d3bb;
+      --text: #3f342d;
+      --muted: #7b6d62;
+      --white: #ffffff;
+      --shadow: 0 14px 40px rgba(62, 43, 31, 0.08);
+      --radius: 18px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        "Noto Sans TC",
+        "PingFang TC",
+        "Microsoft JhengHei",
+        sans-serif;
+      color: var(--text);
+      background: var(--cream-light);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(90%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* =========================
+       Header
+    ========================= */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      padding: 24px 0;
+      color: var(--white);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    /* =========================
+       Hero
+    ========================= */
+    .hero {
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(48, 32, 25, 0.88) 0%,
+          rgba(48, 32, 25, 0.65) 45%,
+          rgba(48, 32, 25, 0.25) 100%
+        ),
+        linear-gradient(135deg, #76543f, #c5a684);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      right: -180px;
+      bottom: -240px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 5px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+    }
+
+    .hero h1 {
+      margin-bottom: 20px;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1.15;
+      letter-spacing: 0.06em;
+    }
+
+    .hero p {
+      max-width: 550px;
+      margin-bottom: 32px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 1.05rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 0.92rem;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: var(--coffee-dark);
+      background: var(--white);
+    }
+
+    .btn-dark {
+      color: var(--white);
+      background: var(--coffee);
+    }
+
+    /* =========================
+       General Section
+    ========================= */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin-bottom: 50px;
+    }
+
+    .section-label {
+      margin-bottom: 8px;
+      color: var(--wood);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 14px;
+      color: var(--coffee-dark);
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      line-height: 1.35;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    /* =========================
+       About
+    ========================= */
+    .about {
+      background: var(--cream-light);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-visual {
+      min-height: 460px;
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(74, 48, 37, 0.2),
+          rgba(229, 211, 187, 0.1)
+        ),
+        #b9946f;
+      box-shadow: var(--shadow);
+    }
+
+    .about-visual::before {
+      content: "COFFEE";
+      position: absolute;
+      left: 30px;
+      bottom: 20px;
+      color: rgba(255, 255, 255, 0.22);
+      font-family: Georgia, serif;
+      font-size: 5rem;
+      letter-spacing: 0.08em;
+    }
+
+    .about-copy p {
+      margin-bottom: 20px;
+      color: var(--muted);
+    }
+
+    .about-note {
+      margin-top: 30px;
+      padding: 20px 24px;
+      border-left: 3px solid var(--wood);
+      background: var(--cream);
+      color: var(--coffee);
+    }
+
+    /* =========================
+       Menu
+    ========================= */
+    .menu {
+      background: #eee5d8;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .menu-card {
+      padding: 30px;
+      border: 1px solid rgba(74, 48, 37, 0.08);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .menu-card h3 {
+      margin-bottom: 24px;
+      color: var(--coffee-dark);
+      font-size: 1.3rem;
+    }
+
+    .menu-list {
+      list-style: none;
+    }
+
+    .menu-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(74, 48, 37, 0.1);
+      font-size: 0.92rem;
+    }
+
+    .menu-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .price {
+      color: var(--coffee);
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    /* =========================
+       Space & Equipment
+    ========================= */
+    .space {
+      background: var(--cream-light);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      padding: 28px 22px;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      background: var(--wood-light);
+      color: var(--coffee);
+      font-size: 1.2rem;
+    }
+
+    .feature h3 {
+      margin-bottom: 8px;
+      color: var(--coffee-dark);
+      font-size: 1rem;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* =========================
+       Business Info
+    ========================= */
+    .info {
+      background: var(--coffee);
+      color: var(--white);
+    }
+
+    .info .section-label {
+      color: var(--wood-light);
+    }
+
+    .info .section-heading h2 {
+      color: var(--white);
+    }
+
+    .info .section-heading p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .info-list {
+      list-style: none;
+    }
+
+    .info-list li {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .info-list strong {
+      color: var(--wood-light);
+      font-size: 0.85rem;
+    }
+
+    .info-list span {
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .map-card {
+      min-height: 320px;
+      display: flex;
+      align-items: flex-end;
+      padding: 28px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.08),
+          rgba(255,255,255,0.02)
+        ),
+        #594035;
+    }
+
+    .map-card-content {
+      width: 100%;
+    }
+
+    .map-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .map-card p {
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .map-link {
+      display: inline-block;
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--wood-light);
+      color: var(--wood-light);
+    }
+
+    /* =========================
+       Contact / CTA
+    ========================= */
+    .contact {
+      text-align: center;
+      background: var(--cream);
+    }
+
+    .contact-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .contact h2 {
+      margin-bottom: 15px;
+      color: var(--coffee-dark);
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .contact p {
+      margin-bottom: 30px;
+      color: var(--muted);
+    }
+
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================
+       Footer
+    ========================= */
+    footer {
+      padding: 30px 0;
+      background: var(--coffee-dark);
+      color: rgba(255, 255, 255, 0.55);
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    /* =========================
+       RWD
+    ========================= */
+    @media (max-width: 900px) {
+      .about-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-visual {
+        min-height: 340px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 18px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 620px;
+      }
+
+      .hero h1 {
+        font-size: 2.7rem;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .section-heading {
+        margin-bottom: 35px;
+      }
+
+      /* 手機版菜單單欄 */
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* 手機版卡片單欄 */
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .about-visual {
+        min-height: 280px;
+      }
+
+      .info-list li {
+        grid-template-columns: 75px 1fr;
+        gap: 12px;
+      }
+
+      .contact-actions {
+        flex-direction: column;
+      }
+
+      .contact-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       Header
+  ========================== -->
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">霸王茶姬咖啡</a>
+
+      <nav aria-label="主要選單">
+        <ul class="nav-links">
+          <li><a href="#about">關於我們</a></li>
+          <li><a href="#menu">菜單</a></li>
+          <li><a href="#space">空間設備</a></li>
+          <li><a href="#info">營業資訊</a></li>
+          <li><a href="#contact">聯絡</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =========================
+         1. Hero 主視覺
+    ========================== -->
+    <section class="hero" aria-label="霸王茶姬咖啡主視覺">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">TAICHUNG · EAST DISTRICT</span>
+
+          <h1>留一點時間，<br />給一杯好咖啡。</h1>
+
+          <p>
+            在臺中東區，距離火車站步行約 8 分鐘。
+            一個有木質溫度、安靜留白，也適合工作與放慢腳步的咖啡空間。
+          </p>
+
+          <a href="#menu" class="btn btn-primary">
+            查看今日菜單
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         2. 關於我們
+    ========================== -->
+    <section class="about" id="about">
+      <div class="container about-grid">
+
+        <div class="about-visual" aria-hidden="true"></div>
+
+        <div class="about-copy">
+          <div class="section-heading">
+            <div class="section-label">About Us</div>
+            <h2>一間讓人願意多坐一會兒的店。</h2>
+          </div>
+
+          <p>
+            霸王茶姬咖啡希望提供的不只是咖啡，而是一個可以暫時離開喧鬧、
+            專心工作、閱讀，或單純享受午後時光的地方。
+          </p>
+
+          <p>
+            我們以深咖啡、米白與淺木色打造溫暖而安靜的空間，
+            搭配手沖咖啡與每日自製甜點，讓每一次停留都有一點剛好的餘裕。
+          </p>
+
+          <div class="about-note">
+            平日下午不限時，歡迎帶著電腦、書本，或只是帶著自己來坐坐。
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================
+         3. 菜單
+    ========================== -->
+    <section class="menu" id="menu">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">Menu</div>
+          <h2>今天想喝什麼？</h2>
+          <p>
+            從手沖咖啡到無咖啡因飲品，再配上一份每日自製甜點。
+          </p>
+        </div>
+
+        <div class="menu-grid">
+
+          <!-- Coffee -->
+          <article class="menu-card">
+            <h3>☕ 咖啡</h3>
+
+            <ul class="menu-list">
+              <li>
+                <span>美式咖啡</span>
+                <span class="price">$100</span>
+              </li>
+              <li>
+                <span>拿鐵</span>
+                <span class="price">$130</span>
+              </li>
+              <li>
+                <span>卡布奇諾</span>
+                <span class="price">$130</span>
+              </li>
+              <li>
+                <span>手沖咖啡</span>
+                <span class="price">$160 起</span>
+              </li>
+              <li>
+                <span>濃縮咖啡</span>
+                <span class="price">$100</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Non Coffee -->
+          <article class="menu-card">
+            <h3>🍵 非咖啡</h3>
+
+            <ul class="menu-list">
+              <li>
+                <span>伯爵鮮奶茶</span>
+                <span class="price">$130</span>
+              </li>
+              <li>
+                <span>抹茶拿鐵</span>
+                <span class="price">$140</span>
+              </li>
+              <li>
+                <span>可可牛奶</span>
+                <span class="price">$130</span>
+              </li>
+              <li>
+                <span>蜂蜜柚子茶</span>
+                <span class="price">$120</span>
+              </li>
+              <li>
+                <span>季節水果茶</span>
+                <span class="price">$140</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Dessert -->
+          <article class="menu-card">
+            <h3>🍰 甜點</h3>
+
+            <ul class="menu-list">
+              <li>
+                <span>巴斯克乳酪蛋糕</span>
+                <span class="price">$150</span>
+              </li>
+              <li>
+                <span>檸檬磅蛋糕</span>
+                <span class="price">$120</span>
+              </li>
+              <li>
+                <span>巧克力布朗尼</span>
+                <span class="price">$130</span>
+              </li>
+              <li>
+                <span>肉桂捲</span>
+                <span class="price">$120</span>
+              </li>
+              <li>
+                <span>每日甜點</span>
+                <span class="price">依當日供應</span>
+              </li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         4. 空間設備
+    ========================== -->
+    <section class="space" id="space">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">Space & Facilities</div>
+          <h2>舒服坐下來，也能好好工作。</h2>
+          <p>
+            保留足夠留白，讓咖啡、工作與自己的時間，都有舒服的位置。
+          </p>
+        </div>
+
+        <div class="features">
+
+          <article class="feature">
+            <div class="feature-icon">⚡</div>
+            <h3>插座充足</h3>
+            <p>
+              多數座位提供充電使用，適合筆電與長時間工作。
+            </p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">⌁</div>
+            <h3>穩定 Wi-Fi</h3>
+            <p>
+              提供穩定網路，讓工作、閱讀與線上會議更順暢。
+            </p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">◷</div>
+            <h3>平日下午不限時</h3>
+            <p>
+              平日下午不限制用餐時間，適合慢慢享受咖啡。
+            </p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">☕</div>
+            <h3>手沖與甜點</h3>
+            <p>
+              提供手沖咖啡與每日自製甜點，陪你度過午後。
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         5. 營業資訊
+    ========================== -->
+    <section class="info" id="info">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">Information</div>
+          <h2>來之前，先知道這些。</h2>
+          <p>第一次來，也可以很輕鬆地找到我們。</p>
+        </div>
+
+        <div class="info-grid">
+
+          <div>
+            <ul class="info-list">
+
+              <li>
+                <strong>地點</strong>
+                <span>臺中市東區<br />距離臺中火車站步行約 8 分鐘</span>
+              </li>
+
+              <li>
+                <strong>營業</strong>
+                <span>請依店家最新公告為準</span>
+              </li>
+
+              <li>
+                <strong>特色</strong>
+                <span>插座充足・穩定 Wi-Fi・平日下午不限時</span>
+              </li>
+
+              <li>
+                <strong>提供</strong>
+                <span>手沖咖啡・非咖啡飲品・自製甜點</span>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="map-card">
+            <div class="map-card-content">
+              <h3>📍 找到我們</h3>
+
+              <p>
+                位於臺中市東區，從臺中火車站步行約 8 分鐘。
+              </p>
+
+              <!--
+                Google Maps 查詢連結。
+                若有實際完整地址，建議將 href 換成：
+                https://www.google.com/maps/search/?api=1&query=完整地址
+              -->
+              <a
+                class="map-link"
+                href="https://www.google.com/maps/search/?api=1&query=%E9%9C%B8%E7%8E%8B%E8%8C%B6%E5%A7%AC%E5%92%96%E5%95%A1%20%E8%87%BA%E4%B8%AD%E5%B8%82%E6%9D%B1%E5%8D%80"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                開啟 Google Maps →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         6. 聯絡與行動
+    ========================== -->
+    <section class="contact" id="contact">
+      <div class="container contact-inner">
+
+        <div class="section-label">Contact</div>
+
+        <h2>下一杯咖啡，等你來。</h2>
+
+        <p>
+          找個午後，帶上電腦或一本書，
+          來霸王茶姬咖啡坐下來。
+        </p>
+
+        <div class="contact-actions">
+
+          <a
+            class="btn btn-dark"
+            href="https://www.google.com/maps/search/?api=1&query=%E9%9C%B8%E7%8E%8B%E8%8C%B6%E5%A7%AC%E5%92%96%E5%95%A1%20%E8%87%BA%E4%B8%AD%E5%B8%82%E6%9D%B1%E5%8D%80"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            查看地圖
+          </a>
+
+          <!--
+            請將下面的電話替換成店家實際電話，例如：
+            href="tel:+886422345678"
+          -->
+          <a
+            class="btn btn-dark"
+            href="tel:+886-4-XXXX-XXXX"
+          >
+            電話聯絡
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================
+       Footer
+  ========================== -->
+  <footer>
+    <div class="container">
+      © 2026 霸王茶姬咖啡 · Taichung East District
+    </div>
+  </footer>
+
+</body>
+</html>
